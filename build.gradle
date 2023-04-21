@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'com.craftinginterpreters'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task run(type: JavaExec) {
+    main = 'com.craftinginterpreters.lox.Lox'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    args = project.hasProperty('args') ? project.args : []
+}
