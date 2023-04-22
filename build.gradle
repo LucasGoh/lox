@@ -19,8 +19,9 @@ test {
 }
 
 task run(type: JavaExec) {
-    main = 'com.craftinginterpreters.lox.Lox'
+    main = 'com.craftinginterpreters.tool.GenerateAst'
+    // main = 'com.craftinginterpreters.lox.Lox'
     classpath = sourceSets.main.runtimeClasspath
-    standardInput = System.in
-    args = project.hasProperty('args') ? project.args : []
+    // standardInput = System.in
+    // args = project.hasProperty('args') ? project.args : []
 }
